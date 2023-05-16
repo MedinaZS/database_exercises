@@ -15,7 +15,7 @@ group by c.nombre, c.apellido, c.nro_cedula
 order by gasto desc;
 
 -- 3. Top monedas más utilizadas
-select m.nombre, count(f.id) as cantidad_utilizadas 
+select m.nombre, count(*) as cantidad_utilizadas 
 from factura as f inner join moneda as m on f.moneda_id=m.id 
 group by  m.id
 order by cantidad_utilizadas desc;
@@ -34,7 +34,7 @@ group by p.nombre
 order by cantidad_vendido desc
 
 -- Productos menos vendidos
-select count(fd.cantidad) as cantidad_vendido, p.nombre as producto
+select sum(fd.cantidad) as cantidad_vendido, p.nombre as producto
 from factura_detalle fd inner join producto p on fd.producto_id = p.id
 group by p.nombre
 order by cantidad_vendido asc
