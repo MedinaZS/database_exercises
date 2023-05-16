@@ -15,14 +15,14 @@ group by c.nombre, c.apellido, c.nro_cedula
 order by gasto desc;
 
 -- 3. Top monedas más utilizadas
-select m.nombre, count(*) as cantidad_utilizadas 
+select m.nombre, count(*) as cantidad_utilizadas
 from factura as f inner join moneda as m on f.moneda_id=m.id 
 group by  m.id
 order by cantidad_utilizadas desc;
 
 
 -- 4. Top proveedor de productos
-select count(*) as cantidad_productos, pr.nombren as producto
+select count(*) as cantidad_productos, pr.nombre as proveedor
 from producto p inner join proveedor pr on p.proveedor_id = pr.id
 group by pr.nombre
 order by cantidad_productos desc
