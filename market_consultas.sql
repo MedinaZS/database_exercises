@@ -28,7 +28,7 @@ group by pr.nombre
 order by cantidad_productos desc
 
 -- 5. Productos más vendidos
-select sum(fd.cantidad) as cantidad_vendido, p.nombre as proveedor
+select sum(fd.cantidad) as cantidad_vendido, p.nombre as producto
 from factura_detalle fd inner join producto p on fd.producto_id = p.id
 group by p.nombre
 order by cantidad_vendido desc
